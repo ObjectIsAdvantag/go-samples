@@ -6,4 +6,5 @@ local:
 deploy:
 	appcfg.py -A $(PROJECT_ID) update .
 
-
+browse:
+	open http://gae-helloworld-1193.appspot.com
