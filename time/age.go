@@ -8,21 +8,31 @@ import (
 	"fmt"
 )
 
+// This function highlights a bug with time.AddDate invocation
+// Published at http://play.golang.org/p/RcVNa8ENae
 func main() {
-	birthDate := time.Date(1971, 12, 24, 18, 0, 0, 0, time.UTC)
+	today := time.Date(2016, 01, 21, 0, 0, 0, 0, time.UTC)
 
-	fmt.Println("you're born on ", birthDate)
+	fmt.Println("suppose today is  : ", today)
 
-	today := time.Now()
+	birthDate := time.Date(1971, 12, 24, 0, 0, 0, 0, time.UTC)
 
-	fmt.Println("today is ", today)
+	fmt.Println("if you're born on : ", birthDate)
 
-	age := today.AddDate(-1971, -12, -24)
+	// Buggy call, a month in missing with go 1.5 on windows 7 64 bits
+	// Reproducible with days from 21 to 31, December any year
+	age := today.AddDate(birthDate.Year() * -1, int(birthDate.Month()) * -1, birthDate.Day() * -1)
 
-	fmt.Println("congrats, you are ", age.Year(), ", ", int(age.Month()), " months, and ", age.Day(), ", days.")
+	// /!\ Should be one month more
+	fmt.Println("then you are      : ", age.Year(), " years, ", int(age.Month()), " months, and ", age.Day(), ", days.")
+	fmt.Println("/!\\ 44 years, 0 months and 28 days is the correct answer")
 
-	again := today.AddDate(birthDate.Year() * -1, int(birthDate.Month()) * -1, birthDate.Day() * -1)
+	// Testing symetry
+	// ? do we recover if we add back ?
+	back := age.AddDate(birthDate.Year(), int(birthDate.Month()), birthDate.Day())
 
-	fmt.Println("again, you are ", again.Year(), ", ", int(again.Month()), " months, and ", again.Day(), ", days.")
-
+	fmt.Println("\nchecking symetry  : ", back == today)
+	fmt.Println("is it today ?     : ", back)
 }
+
+
