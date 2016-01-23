@@ -9,8 +9,9 @@ import (
 )
 
 // This function highlights a bug with time.AddDate invocation
-// Published at http://play.golang.org/p/RcVNa8ENae
+// Published at http://play.golang.org/p/u6zHYRatdA
 func main() {
+
 	today := time.Date(2016, 01, 21, 0, 0, 0, 0, time.UTC)
 
 	fmt.Println("suppose today is  : ", today)
@@ -32,7 +33,7 @@ func main() {
 	back := age.AddDate(birthDate.Year(), int(birthDate.Month()), birthDate.Day())
 
 	fmt.Println("\nchecking symetry  : ", back == today)
-	fmt.Println("is it today ?     : ", back)
+	fmt.Println("confirm this is today: ", back)
 }
 
 
