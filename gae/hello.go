@@ -15,5 +15,6 @@ func init() {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, util.Reverse("Hello Gopher !"))
+//	fmt.Fprint(w, "Hello Gopher you're welcome here !")
 }
 

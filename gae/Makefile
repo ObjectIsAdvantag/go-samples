@@ -1,7 +1,8 @@
-PROJECT_ID=gae-helloworld-1193
+
+default: local
 
 local:
-	goapp serve . & start http://localhost:8080/
+	/c/go_appengine/goapp.bat serve -admin_port 8567 & start http://localhost:8080/
 
-gae:
-	appcfg.py -A $(PROJECT_ID) update . & start http://gae-helloworld-1193.appspot.com
+deploy:
+	/c/go_appengine/goapp.bat deploy

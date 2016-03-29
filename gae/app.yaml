@@ -1,5 +1,5 @@
-application: helloworld
-version: 1
+application: go-samples-gae
+version: v1
 runtime: go
 api_version: go1
 
