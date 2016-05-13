@@ -7,11 +7,16 @@ import (
 	"fmt"
 	"net/url"
 	"time"
+	"os"
 )
 
 func main() {
 
-	port := "8080"
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
 	log.Print("Starting shortener, listening at :", port)
 
 	// register health check
