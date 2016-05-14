@@ -1,6 +1,6 @@
 # URL redirector in #golang
 
-Test if cross-scheme redirect can be easily implemented as I found no cloud offering to do that 
+Test if cross-scheme redirect can be easily implemented as I found no cloud offering to do that.
 
 Takes an URL as query parameter, and redirects to this URL
 
@@ -10,8 +10,8 @@ Syntax : http://domain:port/?url=XXXXXXX
 Example : http://localhost:8080/?url=spark://rooms/4131c373-81db-3731-837a-3d1eedcf76a3
 => redirects to spark://rooms/4131c373-81db-3731-837a-3d1eedcf76a3
  
-Good to know : this is a ONE hour hack, do not expect to much from this code but to do exactly what it was meant for, 
-ie, to test that an HTTP URL shortener could open a Cisco Spark room
+Good to know : this is a ONE hour hack, do not expect too much from this code but to do exactly what it was meant for, 
+ie., to test that an HTTP URL shortener could open a Cisco Spark room.
 
 
 ### How to run 
